@@ -11,8 +11,6 @@ namespace Knot.Localization
     [Serializable]
     public sealed class ImportGoogleSheetSolver : KnotLocalizationImportExport.ImportExportSolver
     {
-        // 16Uiu4od18zgB4lrKQUXBdPOPOzpEreFzTrvABI0aNXY
-
         [SerializeField] private string fileId;
         [SerializeField] private int pageId;
 
@@ -88,52 +86,11 @@ namespace Knot.Localization
                     var key = values[0];
                     var isKeyUpdated = false;
 
-                    // parse languages
                     if (i == 0)
                     {
-                        for (var k = 1; k < values.Length; k++)
-                        {
-                            importLanguages[k] = null;
-
-                            var langRaw = values[k].Trim();
-                            var lang = langRaw.ToLower();
-                            var languageData = database.Languages.FirstOrDefault(data => lang.EndsWith($"[{data.CultureName.ToLower()}]"));
-
-                            if (languageData == null)
-                            {
-                                KnotLocalization.Log($"Skip {langRaw}: not found language in database.", LogType.Warning);
-                                continue;
-                            }
-
-                            if (languageData.CollectionProviders == null)
-                            {
-                                KnotLocalization.Log($"Skip {langRaw}: provider doesn't set.", LogType.Warning);
-                                continue;
-                            }
-
-                            var hasProvider = false;
-                            foreach (var provider in languageData.CollectionProviders)
-                            {
-                                if (provider is IKnotPersistentItemCollectionProvider { Collection: IKnotItemCollection<KnotTextData> })
-                                {
-                                    hasProvider = true;
-                                    break;
-                                }
-                            }
-
-                            if (!hasProvider)
-                            {
-                                KnotLocalization.Log($"Skip {langRaw}: not found provider or provider collection is null.", LogType.Warning);
-                                continue;
-                            }
-
-                            importLanguages[k] = languageData;
-                        }
-
+                        FillLanguagesProviders(database, ref values, ref importLanguages);
                         continue;
                     }
-
-                    // TODO manual setup collection for import?
 
                     KnotKeyData keyData = null;
                     KnotKeyCollection firstKeyCollection = null;
@@ -224,6 +181,48 @@ namespace Knot.Localization
                 KnotLocalization.Log($"New keys: {newKeys}", LogType.Log);
                 KnotLocalization.Log($"Keys updated: {updatedKeys}", LogType.Log);
                 KnotLocalization.Log("Google import finished!", LogType.Log);
+            }
+        }
+
+        private void FillLanguagesProviders(KnotDatabase database, ref string[] values, ref KnotLanguageData[] importLanguages)
+        {
+            for (var k = 1; k < values.Length; k++)
+            {
+                importLanguages[k] = null;
+
+                var langRaw = values[k].Trim();
+                var lang = langRaw.ToLower();
+                var languageData = database.Languages.FirstOrDefault(data => lang.EndsWith($"[{data.CultureName.ToLower()}]"));
+
+                if (languageData == null)
+                {
+                    KnotLocalization.Log($"Skip {langRaw}: not found language in database.", LogType.Warning);
+                    continue;
+                }
+
+                if (languageData.CollectionProviders == null)
+                {
+                    KnotLocalization.Log($"Skip {langRaw}: provider doesn't set.", LogType.Warning);
+                    continue;
+                }
+
+                var hasProvider = false;
+                foreach (var provider in languageData.CollectionProviders)
+                {
+                    if (provider is IKnotPersistentItemCollectionProvider { Collection: IKnotItemCollection<KnotTextData> })
+                    {
+                        hasProvider = true;
+                        break;
+                    }
+                }
+
+                if (!hasProvider)
+                {
+                    KnotLocalization.Log($"Skip {langRaw}: not found provider or provider collection is null.", LogType.Warning);
+                    continue;
+                }
+
+                importLanguages[k] = languageData;
             }
         }
 
