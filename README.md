@@ -47,7 +47,7 @@ to the `Packages/manifest.json` file.
 - Create `KnotLocalizationImportExport` file by `Addons/Import Export` and add to Solvers `Import Google Sheet Solver`;
 - Fill in the `Src Database`, `File Id` and `Page Id`(optional) fields;
 
-> ![image](https://github.com/user-attachments/assets/ca20c30a-3ac3-494b-9e44-690630faf9db)
+> <img alt="Import-in-inspector" src="https://github.com/user-attachments/assets/3644c60d-0beb-41f3-9531-4efc34001dff" width="50%">
 
 - Press the `Import All` button and wait for a message in the console indicating that the import is complete or that
   errors have occurred.
