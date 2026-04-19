@@ -3,7 +3,7 @@
   "displayName": "KNOT Localization extensions",
   "version": "1.0.0",
   "unity": "2021.3",
-  "description": "",
+  "description": "A simple extension for KNOT-Localization that lets you to populate and\nupdate a localization database from Google spreadsheets.",
   "dependencies": {
     "com.knot.localization": "1.4.0"
   },
@@ -16,5 +16,5 @@
   "category": "Localization",
   "documentationUrl": "https://github.com/IlyaKvant/KNOT-Localization-extensions",
   "license": "MIT",
-  "author": "Ilya Kvant",
+  "author": "Ilya Kvant"
 }
