@@ -1,27 +1,31 @@
 {
   "name": "com.kefirbox.knotlocalizationextensions",
-  "displayName": "KNOT Localization extensions",
   "version": "1.0.1",
-  "unity": "2021.3",
+  "displayName": "KNOT Localization extensions",
   "description": "A simple extension for KNOT-Localization that lets you to populate and\nupdate a localization database from Google spreadsheets.",
+  "unity": "2021.3",
+  "documentationUrl": "https://github.com/KefirBox/KNOT-Localization-extensions",
+  "changelogUrl": "https://github.com/KefirBox/KNOT-Localization-extensions/releases",
+  "hideInEditor": false,
   "dependencies": {},
   "keywords": [
     "Localization",
     "Extensions",
     "Unity",
-    "Editor"
+    "Editor",
+    "Google",
+    "Import",
+    "KNOT"
   ],
   "category": "Localization",
-  "documentationUrl": "https://github.com/KefirBox/KNOT-Localization-extensions",
-  "changelogUrl": "https://github.com/KefirBox/KNOT-Localization-extensions/releases",
-  "hideInEditor": false,
   "repository": {
     "url": "https://github.com/KefirBox/KNOT-Localization-extensions.git",
     "type": "git"
   },
+  "licensesUrl": "https://github.com/KefirBox/KNOT-Localization-extensions/blob/main/LICENSE.md",
   "license": "MIT",
   "author": {
-    "name": "Ilya Kvant",
-    "url": "https://github.com/IlyaKvant"
+    "name": "KefirBox Team",
+    "url": "https://github.com/KefirBox"
   }
 }
