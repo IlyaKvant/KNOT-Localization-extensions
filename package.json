@@ -1,8 +1,8 @@
 {
   "name": "com.kefirbox.knotlocalizationextensions",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "displayName": "KNOT Localization extensions",
-  "description": "A simple extension for KNOT-Localization that lets you to populate and\nupdate a localization database from Google spreadsheets.",
+  "description": "Extension for KNOT-Localization that lets you to populate and update a localization database from Google spreadsheets.",
   "unity": "2021.3",
   "documentationUrl": "https://github.com/KefirBox/KNOT-Localization-extensions",
   "changelogUrl": "https://github.com/KefirBox/KNOT-Localization-extensions/releases",

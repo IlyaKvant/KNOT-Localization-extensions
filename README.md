@@ -9,13 +9,13 @@ update a localization database from Google spreadsheets.
 2. Then install package by adding the following to Package Manager:
 
 ```
-https://github.com/KefirBox/KNOT-Localization-extensions.git#1.0.1
+https://github.com/KefirBox/KNOT-Localization-extensions.git#1.0.0
 ```
 
 or by adding
 
 ```
-"com.kefirbox.knotlocalizationextensions": "https://github.com/KefirBox/KNOT-Localization-extensions.git#1.0.1"
+"com.kefirbox.knotlocalizationextensions": "https://github.com/KefirBox/KNOT-Localization-extensions.git#1.0.0"
 ```
 
 to the `Packages/manifest.json` file.
